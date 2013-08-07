@@ -81,6 +81,121 @@ namespace PomeloCpp
 			}
 		}
 	};
+
+	class JsonBuilder
+	{
+	public:
+		static Json::Value object() {
+			return Json::Value();
+		}
+		template<typename T>
+		static Json::Value object(T& value) {
+			return value;
+		}
+		template<typename... ARGS>
+		static Json::Value object(ARGS... args) {
+			Json::Value value;
+			_buildObject(value, args...);
+			return value;
+		}
+		static Json::Value array() {
+			return Json::Value(Json::arrayValue);
+		}
+		template<typename... ARGS>
+		static Json::Value array(ARGS... args) {
+			Json::Value value;
+			_buildArray(value, args...);
+			return value;
+		}
+
+	private:
+		template<typename T>
+		static Json::Value _buildObject(Json::Value &data, std::string key, T& value) {
+			data[key] = value;
+			return data;
+		}
+		template<typename T, typename... ARGS>
+		static Json::Value _buildObject(Json::Value &data, std::string key, T& value, ARGS... args) {
+			data[key] = value;
+			_buildObject(data, args...);
+			return value;
+		}
+		template<typename T>
+		static Json::Value _buildArray(Json::Value &data, T& value) {
+			data.append(value);
+			return data;
+		}
+		template<typename T, typename... ARGS>
+		static Json::Value _buildArray(Json::Value &data, T& value, ARGS... args) {
+			data.append(value);
+			_buildArray(data, args...);
+			return data;
+		}
+	};
+}
+
+namespace Json
+{
+	class ObjectConstructor {
+		Json::Value object;
+	public:
+		ObjectConstructor() {
+		}
+		template<typename T>
+		ObjectConstructor(T& value) {
+			object = value;
+		}
+		template<typename T, typename... ARGS>
+		ObjectConstructor(T first, ARGS... args) {
+			_buildObject(first, args...);
+		}
+		operator Json::Value() const {
+			return object;
+		}
+	private:
+		template<typename T>
+		Json::Value _buildObject(std::string key, T& value) {
+		    object[key] = value;
+			return object;
+		}
+		template<typename T, typename... ARGS>
+		Json::Value _buildObject(std::string key, T& value, ARGS... args) {
+			object[key] = value;
+			_buildObject(args...);
+			return object;
+		}
+	};
+
+	class ArrayConstructor
+	{
+		Json::Value list;
+	public:
+		ArrayConstructor() {
+			list = Json::Value(Json::arrayValue);
+		}
+		template<typename T, typename... ARGS>
+		ArrayConstructor(T first, ARGS... args) {
+			_buildArray(first, args...);
+		}
+		operator Json::Value() const {
+			return list;
+		}
+	private:
+		template<typename T>
+		Json::Value _buildArray(T& value) {
+			list.append(value);
+			return list;
+		}
+		template<typename T, typename... ARGS>
+		Json::Value _buildArray(T& value, ARGS... args) {
+			list.append(value);
+			_buildArray(args...);
+			return list;
+		}
+	};
+
+	typedef ObjectConstructor Object;
+	typedef ArrayConstructor Array;
 }
 
 #endif

@@ -6,36 +6,31 @@ int port = 3010;
 
 int main() {
 	PomeloCpp::Client client(ip, port);
-	client.connect();
+	client.on([] (PomeloCpp::ConnectReq &req, int status) { cout << "Connected." << endl; } );
 
-	while(!client.isConnected()) {
-		client.logic();
+	client.connect(true, true);
+
+	while(!client.isConnected())
 		Sleep(1);
-	}
-
-	Json::Value msg;
-	msg["msg"] = "hehe";
 
 	client.notify("connector.entryHandler.entry",
-		msg,  
-		[] (PomeloCpp::NotifyReq &req, int status) { cout << "Hello world" << endl; } );
+		Json::Object("msg", "hehe"),  
+		[] (PomeloCpp::NotifyReq &req, int status) { cout << "Hello world" << endl; } 
+	);
 	client.request("connector.entryHandler.entry",
-		msg,
-		[] (PomeloCpp::RequestReq &req, int status, Json::Value resp) {
+		Json::Object("msg", "gege"),
+		[] (PomeloCpp::RequestReq &req, int status, Json::Value resp) 
+		{
 			if(status == -1) {
 				printf("Fail to send request to server.\n");
 			} else if(status == 0) {
 				std::shared_ptr<Json::Writer> writer(new Json::FastWriter());
 				cout << writer->write(resp) << endl;
 			}
-	});
-	client.on([] (PomeloCpp::ConnectReq &req, int status) { cout << "Connected." << endl; } );
+		}
+	);
 
-	while(client.isConnected())
-	{
-		client.logic();
-		Sleep(1);
-	}
+	getchar();
 
 	client.disConnect();
 

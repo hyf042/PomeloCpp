@@ -39,9 +39,14 @@ namespace PomeloCpp
 		typedef unsigned long LONG;
 
 		pc_client_t* client;
+		Base::Thread<void()> taskThread;
+		Base::Mutex mutex;
+		
+		int eventThreshold;
+		bool connected;
+		volatile bool taskRunning;
 
 		Event lastEvent;
-		bool connected;
 		Address address;
 		Base::ThreadSafe::Queue<Event> events;
 		map<LONG, request_cb> requestCbs;
@@ -53,18 +58,20 @@ namespace PomeloCpp
 
 	public:
 
-		Client(string ip = "127.0.0.1", int port = 3010)
+		Client(string ip = "127.0.0.1", int port = 3010, int eventThreshold = -1)
 		{
 			this->address.ip = ip;
 			this->address.port = port;
 			connected = false;
+			taskRunning = false;
+			this->eventThreshold = eventThreshold;
 		}
 		~Client() {disConnect();}
 
 		/*
 		 * interface
 		 */
-		bool connect(bool async = true)
+		bool connect(bool async = true, bool reqAsync = false)
 		{
 			if (connected)
 				disConnect();
@@ -104,6 +111,11 @@ namespace PomeloCpp
 				connected = true;
 			}
 
+			if (reqAsync) {
+				taskThread.set(Base::Bind(this, &Client::asyncTask));
+				taskThread.start();
+			}
+
 			return true;
 		}
 		void disConnect()
@@ -113,6 +125,9 @@ namespace PomeloCpp
 
 			pc_client_destroy(client), client = NULL;
 			connected = false;
+			taskRunning = false;
+			if (taskThread.active())
+				taskThread.wait();
 		}
 		void join() {
 			if (!isConnected())
@@ -122,8 +137,12 @@ namespace PomeloCpp
 		}
 		void logic()
 		{
+			BASE_MUTEX_GUARD(mutex);
+
 			Event ev;
-			while (events.take(ev))
+			int count = 0;
+
+			while (events.take(ev) && (eventThreshold < 0 || count++ < eventThreshold))
 			{
 				lastEvent = ev;
 				switch (ev.type)
@@ -199,7 +218,10 @@ namespace PomeloCpp
 		bool isConnected() const  {
 			return connected;
 		}
+		bool isReqAsync() const {return taskRunning;}
 		Event getLastEvent() const {return lastEvent;}
+		void setEventThreshold(int value) {eventThreshold = value;}
+		int getEventThreshold() const {return eventThreshold;}
 
 	private:
 		/*
@@ -213,7 +235,7 @@ namespace PomeloCpp
 		}
 		void on_connected(pc_connect_t *conn_req, int status)
 		{
-			BASE_LOGGER.log(Base::String::format("[iPomelo]Client Connected: data = %p", conn_req->data));
+			BASE_LOGGER.log(Base::String::format("[iPomelo]Client Connected"));
 			if (status == 0)
 				connected = true;
 
@@ -273,6 +295,21 @@ namespace PomeloCpp
 			static_cast<Client*>(client->data)->events.push(Event::CreateOnClearEvent(msg));
 		}
 	
+		void asyncTask() {
+			taskRunning = true;
+			while (taskRunning) {
+				try {
+					logic();
+				}
+				catch(...)
+				{
+					BASE_LOGGER.log_error(Base::String::format("[iPomelo]An error occured in AsyncTask."));
+				}
+				Base::TimeUtil::mSleep(1);
+			}
+			BASE_LOGGER.log(Base::String::format("[iPomelo]Async Task Thread Finished."));
+		}
+
 	private:
 		bool _callMessageCb(std::string route, std::string event = "", void *data = 0) {
 			MessageReq req(route, event, data, this); 
