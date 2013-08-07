@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PomeloClient", "PomeloClient\PomeloClient.vcxproj", "{C86C2442-2968-4506-BDF4-092994BF0CBC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4E582DA0-68E2-8A52-01DE-340B47888102} = {4E582DA0-68E2-8A52-01DE-340B47888102}
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234} = {543F80B6-3DFF-A8DD-BE51-FB9314D6B234}
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F} = {3DA9E8B6-0455-D04B-1985-3748BF80674F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jansson", "PomeloClient\libpomelo\deps\jansson\jansson.vcxproj", "{3DA9E8B6-0455-D04B-1985-3748BF80674F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libuv", "PomeloClient\libpomelo\deps\uv\libuv.vcxproj", "{4E582DA0-68E2-8A52-01DE-340B47888102}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(deps)", "(deps)", "{34589576-0047-417B-BEEF-885B55B01942}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uv", "uv", "{5D7D6BB3-AF94-4BCE-8B1A-B0C4AF35240F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libpomelo", "PomeloClient\libpomelo\libpomelo.vcxproj", "{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{C2A45CED-B710-47C0-BE3C-008D6838A383}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4E582DA0-68E2-8A52-01DE-340B47888102} = {4E582DA0-68E2-8A52-01DE-340B47888102}
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234} = {543F80B6-3DFF-A8DD-BE51-FB9314D6B234}
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F} = {3DA9E8B6-0455-D04B-1985-3748BF80674F}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Default|Win32 = Default|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C86C2442-2968-4506-BDF4-092994BF0CBC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C86C2442-2968-4506-BDF4-092994BF0CBC}.Debug|Win32.Build.0 = Debug|Win32
+		{C86C2442-2968-4506-BDF4-092994BF0CBC}.Default|Win32.ActiveCfg = Debug|Win32
+		{C86C2442-2968-4506-BDF4-092994BF0CBC}.Default|Win32.Build.0 = Debug|Win32
+		{C86C2442-2968-4506-BDF4-092994BF0CBC}.Release|Win32.ActiveCfg = Release|Win32
+		{C86C2442-2968-4506-BDF4-092994BF0CBC}.Release|Win32.Build.0 = Release|Win32
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F}.Debug|Win32.ActiveCfg = Default|Win32
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F}.Debug|Win32.Build.0 = Default|Win32
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F}.Default|Win32.ActiveCfg = Default|Win32
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F}.Default|Win32.Build.0 = Default|Win32
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F}.Release|Win32.ActiveCfg = Default|Win32
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F}.Release|Win32.Build.0 = Default|Win32
+		{4E582DA0-68E2-8A52-01DE-340B47888102}.Debug|Win32.ActiveCfg = Default|Win32
+		{4E582DA0-68E2-8A52-01DE-340B47888102}.Debug|Win32.Build.0 = Default|Win32
+		{4E582DA0-68E2-8A52-01DE-340B47888102}.Default|Win32.ActiveCfg = Default|Win32
+		{4E582DA0-68E2-8A52-01DE-340B47888102}.Default|Win32.Build.0 = Default|Win32
+		{4E582DA0-68E2-8A52-01DE-340B47888102}.Release|Win32.ActiveCfg = Default|Win32
+		{4E582DA0-68E2-8A52-01DE-340B47888102}.Release|Win32.Build.0 = Default|Win32
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}.Debug|Win32.ActiveCfg = Default|Win32
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}.Debug|Win32.Build.0 = Default|Win32
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}.Default|Win32.ActiveCfg = Default|Win32
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}.Default|Win32.Build.0 = Default|Win32
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}.Release|Win32.ActiveCfg = Default|Win32
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}.Release|Win32.Build.0 = Default|Win32
+		{C2A45CED-B710-47C0-BE3C-008D6838A383}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C2A45CED-B710-47C0-BE3C-008D6838A383}.Debug|Win32.Build.0 = Debug|Win32
+		{C2A45CED-B710-47C0-BE3C-008D6838A383}.Default|Win32.ActiveCfg = Debug|Win32
+		{C2A45CED-B710-47C0-BE3C-008D6838A383}.Default|Win32.Build.0 = Debug|Win32
+		{C2A45CED-B710-47C0-BE3C-008D6838A383}.Release|Win32.ActiveCfg = Release|Win32
+		{C2A45CED-B710-47C0-BE3C-008D6838A383}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F} = {34589576-0047-417B-BEEF-885B55B01942}
+		{5D7D6BB3-AF94-4BCE-8B1A-B0C4AF35240F} = {34589576-0047-417B-BEEF-885B55B01942}
+		{4E582DA0-68E2-8A52-01DE-340B47888102} = {5D7D6BB3-AF94-4BCE-8B1A-B0C4AF35240F}
+	EndGlobalSection
+EndGlobal

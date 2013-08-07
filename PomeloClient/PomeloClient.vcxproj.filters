@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{6eb80e88-3967-4e69-812b-62904cfb14ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{f0170c58-5cf8-45ce-8528-ffbc544be3fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\json">
+      <UniqueIdentifier>{01c3abca-7af8-429b-80e9-31ba57ac2a13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PomeloCpp">
+      <UniqueIdentifier>{b9e3cce2-37a7-4cf9-a6da-54df1c97af98}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\json\json_reader.cpp">
+      <Filter>lib\json</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\json\json_value.cpp">
+      <Filter>lib\json</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\json\json_writer.cpp">
+      <Filter>lib\json</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Base\Io\FileUtil.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Base\Io\Path.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Base\Io\Stream.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Base\Logger.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Base\Math.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Base\Random.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Base\String.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Base\Sys\SysUtilWin.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Base\Timer.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lib\json\autolink.h">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\json\config.h">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\json\features.h">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\json\forwards.h">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\json\json.h">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\json\json_batchallocator.h">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\json\reader.h">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\json\value.h">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\json\writer.h">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Any.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Base.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Codec\Codec.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Common.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Exception.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Function\Function.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Function\FunctionBase.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Function\FunctionInclude.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Function\FunctionTemplate.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Io\FileUtil.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Io\Path.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Io\Stream.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Logger.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Math.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Net\Net.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Pattern\Observer.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Pattern\Publisher.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Pattern\Singleton.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Platform.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\PreDeclare.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\PreDefine.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Ptr.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Random.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Raw.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\String.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\StringConv.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Sys\Sys.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Sys\SysUtilApple.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Sys\SysUtilLinux.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Sys\SysUtilWin.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Thread\Mutex.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Thread\Queue.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Thread\Thread.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Timer.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Type.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\TypeTraits.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\Base\Uncopyable.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="PomeloCpp\Client.h">
+      <Filter>PomeloCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="PomeloCpp\Event.h">
+      <Filter>PomeloCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="PomeloCpp\Json.h">
+      <Filter>PomeloCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="PomeloCpp\PreDeclare.h">
+      <Filter>PomeloCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="PomeloCpp\ReqWrapper.h">
+      <Filter>PomeloCpp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lib\json\json_internalarray.inl">
+      <Filter>lib\json</Filter>
+    </None>
+    <None Include="Lib\json\json_internalmap.inl">
+      <Filter>lib\json</Filter>
+    </None>
+    <None Include="Lib\json\json_valueiterator.inl">
+      <Filter>lib\json</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C86C2442-2968-4506-BDF4-092994BF0CBC}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>PomeloClient</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;_WINDOWS;_USRDLL;JANSSON_DLL_EXPORTS;_WINDLL;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>libpomelo\include;libpomelo\deps\uv\include;libpomelo\deps\jansson\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>advapi32.lib;shell32.lib;ws2_32.lib;psapi.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Lib\Base\Io\FileUtil.cpp" />
+    <ClCompile Include="Lib\Base\Io\Path.cpp" />
+    <ClCompile Include="Lib\Base\Io\Stream.cpp" />
+    <ClCompile Include="Lib\Base\Logger.cpp" />
+    <ClCompile Include="Lib\Base\Math.cpp" />
+    <ClCompile Include="Lib\Base\Random.cpp" />
+    <ClCompile Include="Lib\Base\String.cpp" />
+    <ClCompile Include="Lib\Base\Sys\SysUtilWin.cpp" />
+    <ClCompile Include="Lib\Base\Timer.cpp" />
+    <ClCompile Include="Lib\json\json_reader.cpp" />
+    <ClCompile Include="Lib\json\json_value.cpp" />
+    <ClCompile Include="Lib\json\json_writer.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libpomelo\deps\jansson\jansson.vcxproj">
+      <Project>{3da9e8b6-0455-d04b-1985-3748bf80674f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="libpomelo\deps\uv\libuv.vcxproj">
+      <Project>{4e582da0-68e2-8a52-01de-340b47888102}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="libpomelo\libpomelo.vcxproj">
+      <Project>{543f80b6-3dff-a8dd-be51-fb9314d6b234}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lib\Base\Any.h" />
+    <ClInclude Include="Lib\Base\Base.h" />
+    <ClInclude Include="Lib\Base\Codec\Codec.h" />
+    <ClInclude Include="Lib\Base\Common.h" />
+    <ClInclude Include="Lib\Base\Exception.h" />
+    <ClInclude Include="Lib\Base\Function\Function.h" />
+    <ClInclude Include="Lib\Base\Function\FunctionBase.h" />
+    <ClInclude Include="Lib\Base\Function\FunctionInclude.h" />
+    <ClInclude Include="Lib\Base\Function\FunctionTemplate.h" />
+    <ClInclude Include="Lib\Base\Io\FileUtil.h" />
+    <ClInclude Include="Lib\Base\Io\Path.h" />
+    <ClInclude Include="Lib\Base\Io\Stream.h" />
+    <ClInclude Include="Lib\Base\Logger.h" />
+    <ClInclude Include="Lib\Base\Math.h" />
+    <ClInclude Include="Lib\Base\Net\Net.h" />
+    <ClInclude Include="Lib\Base\Pattern\Observer.h" />
+    <ClInclude Include="Lib\Base\Pattern\Publisher.h" />
+    <ClInclude Include="Lib\Base\Pattern\Singleton.h" />
+    <ClInclude Include="Lib\Base\Platform.h" />
+    <ClInclude Include="Lib\Base\PreDeclare.h" />
+    <ClInclude Include="Lib\Base\PreDefine.h" />
+    <ClInclude Include="Lib\Base\Ptr.h" />
+    <ClInclude Include="Lib\Base\Random.h" />
+    <ClInclude Include="Lib\Base\Raw.h" />
+    <ClInclude Include="Lib\Base\String.h" />
+    <ClInclude Include="Lib\Base\StringConv.h" />
+    <ClInclude Include="Lib\Base\Sys\Sys.h" />
+    <ClInclude Include="Lib\Base\Sys\SysUtilApple.h" />
+    <ClInclude Include="Lib\Base\Sys\SysUtilLinux.h" />
+    <ClInclude Include="Lib\Base\Sys\SysUtilWin.h" />
+    <ClInclude Include="Lib\Base\Thread\Mutex.h" />
+    <ClInclude Include="Lib\Base\Thread\Queue.h" />
+    <ClInclude Include="Lib\Base\Thread\Thread.h" />
+    <ClInclude Include="Lib\Base\Timer.h" />
+    <ClInclude Include="Lib\Base\Type.h" />
+    <ClInclude Include="Lib\Base\TypeTraits.h" />
+    <ClInclude Include="Lib\Base\Uncopyable.h" />
+    <ClInclude Include="Lib\json\autolink.h" />
+    <ClInclude Include="Lib\json\config.h" />
+    <ClInclude Include="Lib\json\features.h" />
+    <ClInclude Include="Lib\json\forwards.h" />
+    <ClInclude Include="Lib\json\json.h" />
+    <ClInclude Include="Lib\json\json_batchallocator.h" />
+    <ClInclude Include="Lib\json\reader.h" />
+    <ClInclude Include="Lib\json\value.h" />
+    <ClInclude Include="Lib\json\writer.h" />
+    <ClInclude Include="PomeloCpp\Client.h" />
+    <ClInclude Include="PomeloCpp\Event.h" />
+    <ClInclude Include="PomeloCpp\Json.h" />
+    <ClInclude Include="PomeloCpp\PreDeclare.h" />
+    <ClInclude Include="PomeloCpp\ReqWrapper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lib\json\json_internalarray.inl" />
+    <None Include="Lib\json\json_internalmap.inl" />
+    <None Include="Lib\json\json_valueiterator.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
